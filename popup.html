@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cloudflare DNS Manager</h2>
+    
+    <!-- 设置区域 -->
+    <div id="settings-section">
+      <h3>API设置</h3>
+      <div class="input-group">
+        <input type="password" id="api-token" placeholder="输入 Cloudflare API Token">
+        <button id="save-token">保存并加载域名</button>
+      </div>
+      
+      <!-- 域名选择 -->
+      <div id="zone-selector" style="display:none;">
+        <h3>选择域名</h3>
+        <select id="zone-select">
+          <option value="">-- 选择一个域名 --</option>
+        </select>
+        <button id="load-records">加载DNS记录</button>
+      </div>
+    </div>
+
+    <!-- DNS记录列表 -->
+    <div id="records-section" style="display:none;">
+      <div class="domain-info">
+        <h3>
+          <span id="current-domain"></span>
+          <button id="change-domain" class="small-btn">切换域名</button>
+        </h3>
+      </div>
+      
+      <!-- 搜索和筛选 -->
+      <div class="filter-section">
+        <input type="text" id="search-records" placeholder="搜索记录...">
+        <select id="filter-type">
+          <option value="">所有类型</option>
+          <option value="A">A</option>
+          <option value="AAAA">AAAA</option>
+          <option value="CNAME">CNAME</option>
+          <option value="TXT">TXT</option>
+          <option value="MX">MX</option>
+          <option value="NS">NS</option>
+        </select>
+        <button id="refresh-records">刷新</button>
+      </div>
+      
+      <div id="records-list"></div>
+      
+      <!-- 添加新记录 -->
+      <div class="add-record-form">
+        <h4>添加新记录</h4>
+        <div class="form-row">
+          <select id="new-type">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="CNAME">CNAME</option>
+            <option value="TXT">TXT</option>
+            <option value="MX">MX</option>
+            <option value="CAA">CAA</option>
+            <option value="SRV">SRV</option>
+          </select>
+          <input type="text" id="new-name" placeholder="名称 (@ 为根域名)">
+        </div>
+        <div class="form-row">
+          <input type="text" id="new-content" placeholder="内容/IP地址">
+          <input type="number" id="new-priority" placeholder="优先级 (MX/SRV)" style="display:none;">
+        </div>
+        <div class="form-row">
+          <input type="number" id="new-ttl" placeholder="TTL (秒，1为自动)" value="1">
+          <label class="checkbox-label">
+            <input type="checkbox" id="new-proxied">
+            <span>CDN代理</span>
+          </label>
+        </div>
+        <button id="add-record">添加记录</button>
+      </div>
+    </div>
+
+    <div id="loading" class="loading" style="display:none;">
+      <div class="spinner"></div>
+      <span>加载中...</span>
+    </div>
+    
+    <div id="message" class="message"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
