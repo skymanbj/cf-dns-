@@ -346,3 +346,93 @@ button.small-btn {
   color: #666;
   margin-top: 5px;
 }
+
+/* 为各种DNS记录类型添加不同颜色 */
+.record-type.type-A { background: #28a745; }
+.record-type.type-AAAA { background: #6f42c1; }
+.record-type.type-CNAME { background: #fd7e14; }
+.record-type.type-TXT { background: #17a2b8; }
+.record-type.type-MX { background: #e83e8c; }
+.record-type.type-NS { background: #6c757d; }
+.record-type.type-CAA { background: #20c997; }
+.record-type.type-SRV { background: #dc3545; }
+.record-type.type-LOC { background: #007bff; }
+.record-type.type-SPF { background: #ffc107; }
+.record-type.type-CERT { background: #795548; }
+.record-type.type-DNSKEY { background: #9c27b0; }
+.record-type.type-DS { background: #673ab7; }
+.record-type.type-NAPTR { background: #3f51b5; }
+.record-type.type-SMIMEA { background: #2196f3; }
+.record-type.type-SSHFP { background: #00bcd4; }
+.record-type.type-TLSA { background: #009688; }
+.record-type.type-URI { background: #4caf50; }
+.record-type.type-HTTPS { background: #8bc34a; }
+.record-type.type-SVCB { background: #cddc39; }
+.record-type.type-WORKER { background: #ff5722; }
+
+/* Workers路由样式 */
+.workers-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.workers-section h4 {
+  color: white;
+  margin-top: 0;
+}
+
+.worker-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.worker-pattern {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.worker-script {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.worker-enabled {
+  display: inline-block;
+  background: #28a745;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.worker-disabled {
+  display: inline-block;
+  background: #dc3545;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.no-records {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-style: italic;
+}
+
+/* 未知类型的样式 */
+.record-type.type-UNKNOWN {
+  background: #ff5722;
+}
+
+.record-type.type-PTR {
+  background: #ff9800;
+}
